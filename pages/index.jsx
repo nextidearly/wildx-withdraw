@@ -535,7 +535,7 @@ const Home = () => {
         </div>
         <ul>
           {data &&
-            data.slice(1).map((item, key) => {
+            data.map((item, key) => {
               if (item[Object.keys(item)[0]] > 10000) {
                 return (
                   <li
