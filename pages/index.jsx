@@ -493,7 +493,7 @@ const Home = () => {
         >
           fetch Balances
         </button>
-        <div className="flex justify-between p-3 bg-gray-800/20 rounded-md shadow shadow-black w-64 my-4">
+        <div className="flex justify-between p-3 bg-gray-800/20 rounded-md shadow shadow-black w-64 my-4 mt-8 text-xl font-semibold">
           <span> SUM :</span> <span>~$ {sum.toFixed(2)}</span>{" "}
         </div>
         <div className="text-center my-3 text-xl font-semibold grid grid-cols-5 w-full gap-3">
@@ -501,36 +501,36 @@ const Home = () => {
             <span>Number</span> <span>{num}/1639</span>{" "}
           </div>
           <div className="flex justify-between p-3 bg-gray-800/20 rounded-md shadow shadow-black">
-            <span>+10000</span> <span>{sum1}</span>{" "}
+            <span>+10000</span> <span className="text-red-600">{sum1}</span>{" "}
           </div>
           <div className="flex justify-between p-3 bg-gray-800/20 rounded-md shadow shadow-black">
-            <span>+5000</span> <span>{sum2}</span>{" "}
+            <span>+5000</span> <span className="text-green-600">{sum2}</span>{" "}
           </div>
           <div className="flex justify-between p-3 bg-gray-800/20 rounded-md shadow shadow-black">
-            <span>+3000</span> <span>{sum3}</span>{" "}
+            <span>+3000</span> <span className="text-orange-600">{sum3}</span>{" "}
           </div>
           <div className="flex justify-between p-3 bg-gray-800/20 rounded-md shadow shadow-black">
-            <span>+2000</span> <span>{sum4}</span>{" "}
+            <span>+2000</span> <span className="text-[#9333ea]">{sum4}</span>{" "}
           </div>
           <div className="flex justify-between p-3 bg-gray-800/20 rounded-md shadow shadow-black">
-            <span>+1000</span> <span>{sum5}</span>{" "}
+            <span>+1000</span> <span className="text-[#d97706]">{sum5}</span>{" "}
           </div>
           <div className="flex justify-between p-3 bg-gray-800/20 rounded-md shadow shadow-black">
-            <span>+500</span> <span>{sum6}</span>{" "}
+            <span>+500</span> <span className="text-[#166534]">{sum6}</span>{" "}
           </div>
           <div className="flex justify-between p-3 bg-gray-800/20 rounded-md shadow shadow-black">
-            <span>+100</span> <span>{sum7}</span>{" "}
+            <span>+100</span> <span className="text-[#406ec2]">{sum7}</span>{" "}
           </div>
           <div className="flex justify-between p-3 bg-gray-800/20 rounded-md shadow shadow-black">
-            <span>+50</span> <span>{sum8}</span>{" "}
+            <span>+50</span> <span className="text-[#3c3e41]">{sum8}</span>{" "}
           </div>
           <div className="flex justify-between p-3 bg-gray-800/20 rounded-md shadow shadow-black">
-            <span>-50</span> <span>{sum9}</span>{" "}
+            <span>-50</span> <span className="text-[#3e3e3fb2]">{sum9}</span>{" "}
           </div>
         </div>
         <ul>
           {data &&
-            data.map((item, key) => {
+            data.slice(1).map((item, key) => {
               if (item[Object.keys(item)[0]] > 10000) {
                 return (
                   <li
@@ -607,7 +607,7 @@ const Home = () => {
                 return (
                   <li
                     key={key}
-                    className="bg-gray-800/20 shadow shadow-black py-1 px-5 rounded  mb-1 flex justify-between text-[#d8d8d8]"
+                    className="bg-gray-800/20 shadow shadow-black py-1 px-5 rounded  mb-1 flex justify-between text-[#406ec2]"
                   >
                     <span> {Object.keys(item)[0]} :</span>{" "}
                     <span> ~$ {(item[Object.keys(item)[0]]).toFixed(2)} </span>{" "}
@@ -620,6 +620,18 @@ const Home = () => {
                   <li
                     key={key}
                     className="bg-gray-800/20 shadow shadow-black py-1 px-5 rounded  mb-1 flex justify-between text-[#3c3e41]"
+                  >
+                    <span> {Object.keys(item)[0]} :</span>{" "}
+                    <span> {(item[Object.keys(item)[0]]).toFixed(2)} </span>{" "}
+                  </li>
+                );
+              }
+
+              if (item[Object.keys(item)[0]] < 50) {
+                return (
+                  <li
+                    key={key}
+                    className="bg-gray-800/20 shadow shadow-black py-1 px-5 rounded  mb-1 flex justify-between text-[#3e3e3fb2]"
                   >
                     <span> {Object.keys(item)[0]} :</span>{" "}
                     <span> {(item[Object.keys(item)[0]]).toFixed(2)} </span>{" "}
