@@ -15,12 +15,11 @@ const Home = () => {
         return;
       }
 
-      
+
       try {
         const address = addresses[key].Address;
         const myAddress = await fetch(`/mempool/address/${address}`);
         if (myAddress.satus === 429) {
-          console.log(number, "----number---");
           fetchBalances(BTCAddresses.slice(number === 0 ? 0 : number - 1));
           clearInterval(interval);
         } else {
@@ -38,7 +37,6 @@ const Home = () => {
           number += 1;
         }
       } catch (error) {
-        console.log("bitcoin Address", error);
       }
     }, 500);
   };
