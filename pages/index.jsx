@@ -15,6 +15,7 @@ const Home = () => {
         return;
       }
 
+      
       try {
         const address = addresses[key].Address;
         const myAddress = await fetch(`/mempool/address/${address}`);
