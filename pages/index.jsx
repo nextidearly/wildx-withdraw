@@ -38,48 +38,53 @@ const Home = () => {
             (Number(json.chain_stats.funded_txo_sum) -
               Number(json.chain_stats.spent_txo_sum)) /
             100000000;
-          setData((data) => [...data, { [json.address]: balance * 34748.5 }]);
-          setSum((i) => i + balance * 34748.5);
 
-          if (balance * 34748 > 10000) {
-            setSum1((i) => i + 1);
+          if (
+            Object.keys(data)[Object.keys(data).length - 1] !== json.address
+          ) {
+            setData((data) => [...data, { [json.address]: balance * 34748.5 }]);
+            setSum((i) => i + balance * 34748.5);
+
+            if (balance * 34748 > 10000) {
+              setSum1((i) => i + 1);
+            }
+
+            if (balance * 34748 > 5000) {
+              setSum2((i) => i + 1);
+            }
+
+            if (balance * 34748 > 3000) {
+              setSum3((i) => i + 1);
+            }
+
+            if (balance * 34748 > 2000) {
+              setSum4((i) => i + 1);
+            }
+
+            if (balance * 34748 > 1000) {
+              setSum5((i) => i + 1);
+            }
+
+            if (balance * 34748 > 500) {
+              setSum6((i) => i + 1);
+            }
+
+            if (balance * 34748 > 100) {
+              setSum7((i) => i + 1);
+            }
+
+            if (balance * 34748 > 50) {
+              setSum8((i) => i + 1);
+            }
+
+            if (balance * 34748 < 50) {
+              setSum9((i) => i + 1);
+            }
+
+            key += 1;
+            number += 1;
+            setNum(number);
           }
-
-          if (balance * 34748 > 5000) {
-            setSum2((i) => i + 1);
-          }
-
-          if (balance * 34748 > 3000) {
-            setSum3((i) => i + 1);
-          }
-
-          if (balance * 34748 > 2000) {
-            setSum4((i) => i + 1);
-          }
-
-          if (balance * 34748 > 1000) {
-            setSum5((i) => i + 1);
-          }
-
-          if (balance * 34748 > 500) {
-            setSum6((i) => i + 1);
-          }
-
-          if (balance * 34748 > 100) {
-            setSum7((i) => i + 1);
-          }
-
-          if (balance * 34748 > 50) {
-            setSum8((i) => i + 1);
-          }
-
-          if (balance * 34748 < 50) {
-            setSum9((i) => i + 1);
-          }
-
-          key += 1;
-          number += 1;
-          setNum(number);
         }
       } catch (error) {}
     }, 500);
@@ -501,31 +506,31 @@ const Home = () => {
             <span>Number</span> <span>{num}/1639</span>{" "}
           </div>
           <div className="flex justify-between p-3 bg-gray-800/20 rounded-md shadow shadow-black">
-            <span>+10000</span> <span className="text-red-600">{sum1}</span>{" "}
+            <span>$ +10000</span> <span className="text-red-600">{sum1}</span>{" "}
           </div>
           <div className="flex justify-between p-3 bg-gray-800/20 rounded-md shadow shadow-black">
-            <span>+5000</span> <span className="text-green-600">{sum2}</span>{" "}
+            <span>$ +5000</span> <span className="text-green-600">{sum2}</span>{" "}
           </div>
           <div className="flex justify-between p-3 bg-gray-800/20 rounded-md shadow shadow-black">
-            <span>+3000</span> <span className="text-orange-600">{sum3}</span>{" "}
+            <span>$ +3000</span> <span className="text-orange-600">{sum3}</span>{" "}
           </div>
           <div className="flex justify-between p-3 bg-gray-800/20 rounded-md shadow shadow-black">
-            <span>+2000</span> <span className="text-[#9333ea]">{sum4}</span>{" "}
+            <span>$ +2000</span> <span className="text-[#9333ea]">{sum4}</span>{" "}
           </div>
           <div className="flex justify-between p-3 bg-gray-800/20 rounded-md shadow shadow-black">
-            <span>+1000</span> <span className="text-[#d97706]">{sum5}</span>{" "}
+            <span>$ +1000</span> <span className="text-[#d97706]">{sum5}</span>{" "}
           </div>
           <div className="flex justify-between p-3 bg-gray-800/20 rounded-md shadow shadow-black">
-            <span>+500</span> <span className="text-[#166534]">{sum6}</span>{" "}
+            <span>$ +500</span> <span className="text-[#166534]">{sum6}</span>{" "}
           </div>
           <div className="flex justify-between p-3 bg-gray-800/20 rounded-md shadow shadow-black">
-            <span>+100</span> <span className="text-[#406ec2]">{sum7}</span>{" "}
+            <span>$ +100</span> <span className="text-[#406ec2]">{sum7}</span>{" "}
           </div>
           <div className="flex justify-between p-3 bg-gray-800/20 rounded-md shadow shadow-black">
-            <span>+50</span> <span className="text-[#3c3e41]">{sum8}</span>{" "}
+            <span>$ +50</span> <span className="text-[#3c3e41]">{sum8}</span>{" "}
           </div>
           <div className="flex justify-between p-3 bg-gray-800/20 rounded-md shadow shadow-black">
-            <span>-50</span> <span className="text-[#3e3e3fb2]">{sum9}</span>{" "}
+            <span>$ -50</span> <span className="text-[#3e3e3fb2]">{sum9}</span>{" "}
           </div>
         </div>
         <ul>
@@ -538,7 +543,7 @@ const Home = () => {
                     className="bg-gray-800/20 shadow shadow-black py-1 px-5 rounded  mb-1 flex justify-between  text-red-600"
                   >
                     <span> {Object.keys(item)[0]} :</span>{" "}
-                    <span> ~$  {(item[Object.keys(item)[0]]).toFixed(2)} </span>
+                    <span> ~$ {item[Object.keys(item)[0]].toFixed(2)} </span>
                   </li>
                 );
               }
@@ -550,7 +555,7 @@ const Home = () => {
                     className="bg-gray-800/20 shadow shadow-black py-1 px-5 rounded  mb-1 flex justify-between  text-green-600"
                   >
                     <span> {Object.keys(item)[0]} :</span>{" "}
-                    <span> ~$ {(item[Object.keys(item)[0]]).toFixed(2)} </span>{" "}
+                    <span> ~$ {item[Object.keys(item)[0]].toFixed(2)} </span>{" "}
                   </li>
                 );
               }
@@ -562,7 +567,7 @@ const Home = () => {
                     className="bg-gray-800/20 shadow shadow-black py-1 px-5 rounded  mb-1 flex justify-between  text-orange-600"
                   >
                     <span> {Object.keys(item)[0]} :</span>{" "}
-                    <span> ~$ {(item[Object.keys(item)[0]]).toFixed(2)} </span>{" "}
+                    <span> ~$ {item[Object.keys(item)[0]].toFixed(2)} </span>{" "}
                   </li>
                 );
               }
@@ -574,7 +579,7 @@ const Home = () => {
                     className="bg-gray-800/20 shadow shadow-black py-1 px-5 rounded  mb-1 flex justify-between  text-[#9333ea]"
                   >
                     <span> {Object.keys(item)[0]} :</span>{" "}
-                    <span> ~$ {(item[Object.keys(item)[0]]).toFixed(2)} </span>{" "}
+                    <span> ~$ {item[Object.keys(item)[0]].toFixed(2)} </span>{" "}
                   </li>
                 );
               }
@@ -586,7 +591,7 @@ const Home = () => {
                     className="bg-gray-800/20 shadow shadow-black py-1 px-5 rounded  mb-1 flex justify-between text-[#d97706]"
                   >
                     <span> {Object.keys(item)[0]} :</span>{" "}
-                    <span> ~$ {(item[Object.keys(item)[0]]).toFixed(2)} </span>{" "}
+                    <span> ~$ {item[Object.keys(item)[0]].toFixed(2)} </span>{" "}
                   </li>
                 );
               }
@@ -598,7 +603,7 @@ const Home = () => {
                     className="bg-gray-800/20 shadow shadow-black py-1 px-5 rounded  mb-1 flex justify-between text-[#166534]"
                   >
                     <span> {Object.keys(item)[0]} :</span>{" "}
-                    <span> ~$ {(item[Object.keys(item)[0]]).toFixed(2)} </span>{" "}
+                    <span> ~$ {item[Object.keys(item)[0]].toFixed(2)} </span>{" "}
                   </li>
                 );
               }
@@ -610,7 +615,7 @@ const Home = () => {
                     className="bg-gray-800/20 shadow shadow-black py-1 px-5 rounded  mb-1 flex justify-between text-[#406ec2]"
                   >
                     <span> {Object.keys(item)[0]} :</span>{" "}
-                    <span> ~$ {(item[Object.keys(item)[0]]).toFixed(2)} </span>{" "}
+                    <span> ~$ {item[Object.keys(item)[0]].toFixed(2)} </span>{" "}
                   </li>
                 );
               }
@@ -622,7 +627,7 @@ const Home = () => {
                     className="bg-gray-800/20 shadow shadow-black py-1 px-5 rounded  mb-1 flex justify-between text-[#3c3e41]"
                   >
                     <span> {Object.keys(item)[0]} :</span>{" "}
-                    <span> {(item[Object.keys(item)[0]]).toFixed(2)} </span>{" "}
+                    <span> {item[Object.keys(item)[0]].toFixed(2)} </span>{" "}
                   </li>
                 );
               }
@@ -634,7 +639,7 @@ const Home = () => {
                     className="bg-gray-800/20 shadow shadow-black py-1 px-5 rounded  mb-1 flex justify-between text-[#3e3e3fb2]"
                   >
                     <span> {Object.keys(item)[0]} :</span>{" "}
-                    <span> {(item[Object.keys(item)[0]]).toFixed(2)} </span>{" "}
+                    <span> {item[Object.keys(item)[0]].toFixed(2)} </span>{" "}
                   </li>
                 );
               }
