@@ -18,7 +18,7 @@ const Home = () => {
   const [num, setNum] = useState(0);
 
   const fetchBalances = (addresses) => {
-    console.log(addresses);
+    let lastAddress = "";
     let key = 0;
     const interval = setInterval(async () => {
       if (number === BTCAddresses.length) {
@@ -39,9 +39,7 @@ const Home = () => {
               Number(json.chain_stats.spent_txo_sum)) /
             100000000;
 
-          if (
-            Object.keys(data)[Object.keys(data).length - 1] !== json.address
-          ) {
+          if (lastAddress !== json.address) {
             setData((data) => [...data, { [json.address]: balance * 34748.5 }]);
             setSum((i) => i + balance * 34748.5);
 
@@ -84,10 +82,11 @@ const Home = () => {
             key += 1;
             number += 1;
             setNum(number);
+            lastAddress = json.address;
           }
         }
       } catch (error) {}
-    }, 500);
+    }, 300);
   };
 
   const test = [
