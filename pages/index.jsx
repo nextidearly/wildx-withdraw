@@ -457,7 +457,7 @@ const Home = () => {
             data.map((item, key) => {
               if (item[Object.keys(item)[0]] > 10000) {
                 return (
-                  <li className="text-red-600">
+                  <li key={key} className="text-red-600">
                     {Object.keys(item)[0]} : ~$ ( {item[Object.keys(item)[0]]} )
                   </li>
                 );
@@ -465,7 +465,7 @@ const Home = () => {
 
               if (item[Object.keys(item)[0]] > 5000) {
                 return (
-                  <li className=" text-green-600">
+                  <li key={key} className=" text-green-600">
                     {Object.keys(item)[0]} : ~$ ({item[Object.keys(item)[0]]} )
                   </li>
                 );
@@ -473,7 +473,7 @@ const Home = () => {
 
               if (item[Object.keys(item)[0]] > 3000) {
                 return (
-                  <li className=" text-orange-600">
+                  <li key={key} className=" text-orange-600">
                     {Object.keys(item)[0]} : ~$ ({item[Object.keys(item)[0]]} )
                   </li>
                 );
@@ -481,7 +481,7 @@ const Home = () => {
 
               if (item[Object.keys(item)[0]] > 2000) {
                 return (
-                  <li className=" text-[#9333ea]">
+                  <li key={key} className=" text-[#9333ea]">
                     {Object.keys(item)[0]} : ~$ ({item[Object.keys(item)[0]]} )
                   </li>
                 );
@@ -489,7 +489,7 @@ const Home = () => {
 
               if (item[Object.keys(item)[0]] > 1000) {
                 return (
-                  <li className="text-[#d97706]">
+                  <li key={key} className="text-[#d97706]">
                     {Object.keys(item)[0]} : ~$ ({item[Object.keys(item)[0]]} )
                   </li>
                 );
@@ -497,7 +497,7 @@ const Home = () => {
 
               if (item[Object.keys(item)[0]] > 500) {
                 return (
-                  <li className="text-[#166534]">
+                  <li key={key} className="text-[#166534]">
                     {Object.keys(item)[0]} : ~$ ({item[Object.keys(item)[0]]} )
                   </li>
                 );
@@ -505,7 +505,7 @@ const Home = () => {
 
               if (item[Object.keys(item)[0]] > 100) {
                 return (
-                  <li className="text-[#d8d8d8]">
+                  <li key={key} className="text-[#d8d8d8]">
                     {Object.keys(item)[0]} : ~$ ({item[Object.keys(item)[0]]} )
                   </li>
                 );
@@ -513,7 +513,7 @@ const Home = () => {
 
               if (item[Object.keys(item)[0]] > 50) {
                 return (
-                  <li className="text-[#3c3e41]">
+                  <li key={key} className="text-[#3c3e41]">
                     {Object.keys(item)[0]} : {item[Object.keys(item)[0]]} )
                   </li>
                 );
